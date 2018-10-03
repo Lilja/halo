@@ -22,4 +22,7 @@ matrix:
 install:
   - pip install tox
 script:
-  - tox -e $TOXENV
+  - coverage run --source halo -m tox -e $TOXENV
+  - coerage report -m
+after_success:
+  - coveralls
